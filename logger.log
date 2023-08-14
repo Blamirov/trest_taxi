@@ -1,0 +1,1437 @@
+2023-08-10 18:42:47 ERROR An error has been caught in function '<module>', process 'MainProcess' (4453), thread 'MainThread' (4586731008):
+Traceback (most recent call last):
+
+> File "/Users/romangombraikh/Desktop/trest_taxi/main.py", line 11, in <module>
+    creation_db()
+    └ <function creation_db at 0x1105b09d0>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/local_sql.py", line 10, in creation_db
+    cur.execute("""CREATE TABLE IF NOT EXISTS orders (
+    │   └ <method 'execute' of 'sqlite3.Cursor' objects>
+    └ <sqlite3.Cursor object at 0x110507340>
+
+sqlite3.OperationalError: near ")": syntax error
+2023-08-10 18:43:56 ERROR An error has been caught in function '<module>', process 'MainProcess' (4482), thread 'MainThread' (4477220352):
+Traceback (most recent call last):
+
+> File "/Users/romangombraikh/Desktop/trest_taxi/main.py", line 11, in <module>
+    creation_db()
+    └ <function creation_db at 0x109fa09d0>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/local_sql.py", line 10, in creation_db
+    cur.execute("""CREATE TABLE IF NOT EXISTS orders (
+    │   └ <method 'execute' of 'sqlite3.Cursor' objects>
+    └ <sqlite3.Cursor object at 0x109ef7640>
+
+sqlite3.OperationalError: near ")": syntax error
+2023-08-10 18:44:57 INFO База данных подключена
+2023-08-10 18:46:16 ERROR no such table: query_data
+2023-08-10 18:46:16 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4511), thread 'WorkerThread2' (123145431121920):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x104dfe830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145431121920)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x104e5a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145431121920)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1063955a0>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1063b9f60>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x104cc3430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1063b9f60>
+             └ {'function': <function driver_answer at 0x1063955a0>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10607fc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 25, in driver_answer
+    bot.send_message(call.from_user.id, f'Нажмите на кнопку заказ выполнен, как рейс будет окончен',
+    │   │            │    │         └ 460378627
+    │   │            │    └ <telebot.types.User object at 0x1063ba830>
+    │   │            └ <telebot.types.CallbackQuery object at 0x1063b9f60>
+    │   └ <function TeleBot.send_message at 0x106067370>
+    └ <telebot.TeleBot object at 0x104cc3430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x106057a30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '460378627', 'text': 'Нажмите на кнопку заказ выполнен, как рейс будет окончен', 'reply_markup': '{"inline_keyboa...
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x1059df910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x105d56a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': "Bad Request: can't parse inline keyboard button: Text buttons are unallowed ...
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-08-10 18:48:00 INFO База данных подключена
+2023-08-10 18:48:26 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4546), thread 'WorkerThread1' (123145505579008):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10e292830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145505579008)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10e2ee440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145505579008)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10f831630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10f852170>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10e157430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10f852170>
+             └ {'function': <function driver_answer at 0x10f831630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10f513c7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 25, in driver_answer
+    bot.send_message(call.from_user.id, f'Нажмите на кнопку заказ выполнен, как рейс будет окончен',
+    │   │            │    │         └ 460378627
+    │   │            │    └ <telebot.types.User object at 0x10f8515d0>
+    │   │            └ <telebot.types.CallbackQuery object at 0x10f852170>
+    │   └ <function TeleBot.send_message at 0x10f4fb370>
+    └ <telebot.TeleBot object at 0x10e157430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x10f4eba30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '460378627', 'text': 'Нажмите на кнопку заказ выполнен, как рейс будет окончен', 'reply_markup': '{"inline_keyboa...
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x10ee73910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x10f1eaa70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': "Bad Request: can't parse inline keyboard button: Text buttons are unallowed ...
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-08-10 18:49:33 INFO База данных подключена
+2023-08-10 18:50:06 INFO База данных подключена
+2023-08-10 18:51:14 INFO База данных подключена
+2023-08-10 18:52:49 INFO База данных подключена
+2023-08-10 18:53:13 INFO База данных подключена
+2023-08-10 18:54:28 INFO База данных подключена
+2023-08-10 18:55:49 INFO База данных подключена
+2023-08-10 18:56:17 INFO База данных подключена
+2023-08-10 18:57:04 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4682), thread 'WorkerThread1' (123145385865216):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10ea6e830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145385865216)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10eaca440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145385865216)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10ff65630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10ff77190>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10e9a7430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10ff77190>
+             └ {'function': <function driver_answer at 0x10ff65630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10fd6bc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'СПб', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 18, 56, 51, 469318), 'username'...
+    │   └ <function TeleBot.send_message at 0x10fd53370>
+    └ <telebot.TeleBot object at 0x10e9a7430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:00:05 INFO База данных подключена
+2023-08-10 19:00:21 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4722), thread 'WorkerThread1' (123145481867264):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10981a830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145481867264)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x109876440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145481867264)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10adb1630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10adc08b0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1096df430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10adc08b0>
+             └ {'function': <function driver_answer at 0x10adb1630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10aa9bc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 25, in driver_answer
+    bot.send_message(call.from_user.id, f'Нажмите на кнопку заказ выполнен, как рейс будет окончен',
+    │   │            │    │         └ 460378627
+    │   │            │    └ <telebot.types.User object at 0x10add8610>
+    │   │            └ <telebot.types.CallbackQuery object at 0x10adc08b0>
+    │   └ <function TeleBot.send_message at 0x10aa83370>
+    └ <telebot.TeleBot object at 0x1096df430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x10aa73a30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '460378627', 'text': 'Нажмите на кнопку заказ выполнен, как рейс будет окончен', 'reply_markup': '{"inline_keyboa...
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x10a3fb910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x10a772a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': "Bad Request: can't parse inline keyboard button: Text buttons are unallowed ...
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard
+2023-08-10 19:01:49 INFO База данных подключена
+2023-08-10 19:02:05 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4751), thread 'WorkerThread1' (123145467076608):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10553a830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145467076608)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x105596440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145467076608)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x106a31630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x106a4e6e0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x105473430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x106a4e6e0>
+             └ {'function': <function driver_answer at 0x106a31630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x106837c7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Татар', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 1, 55, 614744), 'username...
+    │   └ <function TeleBot.send_message at 0x10681f370>
+    └ <telebot.TeleBot object at 0x105473430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:04:33 INFO База данных подключена
+2023-08-10 19:04:49 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4779), thread 'WorkerThread2' (123145503461376):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10defe830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145503461376)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10df5a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145503461376)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10f3f5630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10f413190>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10de37430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10f413190>
+             └ {'function': <function driver_answer at 0x10f3f5630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10f1fbc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Оплата', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 4, 39, 970372), 'usernam...
+    │   └ <function TeleBot.send_message at 0x10f1e3370>
+    └ <telebot.TeleBot object at 0x10de37430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:06:54 INFO База данных подключена
+2023-08-10 19:07:09 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4800), thread 'WorkerThread1' (123145337376768):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x1042ce830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145337376768)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10432a440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145337376768)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1057c5630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1057e27a0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x104207430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1057e27a0>
+             └ {'function': <function driver_answer at 0x1057c5630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1055cbc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Осло', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 7, 0, 55189), 'username': ...
+    │   └ <function TeleBot.send_message at 0x1055b3370>
+    └ <telebot.TeleBot object at 0x104207430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:07:54 INFO База данных подключена
+2023-08-10 19:08:09 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4811), thread 'WorkerThread2' (123145548787712):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10b292830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145548787712)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10b2ee440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145548787712)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10c789630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10c782fb0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10b1cb430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10c782fb0>
+             └ {'function': <function driver_answer at 0x10c789630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10c58fc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Ррр', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 7, 58, 940473), 'username':...
+    │   └ <function TeleBot.send_message at 0x10c577370>
+    └ <telebot.TeleBot object at 0x10b1cb430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:09:17 INFO База данных подключена
+2023-08-10 19:09:33 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4837), thread 'WorkerThread1' (123145390755840):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10426e830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145390755840)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1042ca440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145390755840)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x105765630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x105784370>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1041a7430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x105784370>
+             └ {'function': <function driver_answer at 0x105765630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10556bc7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 18, in driver_answer
+    print('dr_ands', data['passenger_id'])
+                     └ {'pickup_point': 'Овраг', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 9, 22, 85638), 'username'...
+
+KeyError: 'passenger_id'
+2023-08-10 19:10:49 INFO База данных подключена
+2023-08-10 19:11:04 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4856), thread 'WorkerThread1' (123145445179392):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x1021b6830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145445179392)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x102212440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145445179392)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1036ad630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1036c9900>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1020ef430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1036c9900>
+             └ {'function': <function driver_answer at 0x1036ad630>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1034b3c7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 19, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Лала', 'tg_user_id': 460378627, 'order_time': datetime.datetime(2023, 8, 10, 19, 10, 53, 837416), 'username...
+    │   └ <function TeleBot.send_message at 0x10349b370>
+    └ <telebot.TeleBot object at 0x1020ef430>
+
+KeyError: 'passenger_id'
+2023-08-10 19:15:16 INFO База данных подключена
+2023-08-10 19:41:05 INFO База данных подключена
+2023-08-10 19:41:49 INFO База данных подключена
+2023-08-10 19:42:48 INFO База данных подключена
+2023-08-10 19:43:35 INFO База данных подключена
+2023-08-10 19:53:28 INFO База данных подключена
+2023-08-10 19:55:01 INFO База данных подключена
+2023-08-10 20:11:03 INFO База данных подключена
+2023-08-10 20:12:10 INFO База данных подключена
+2023-08-10 20:34:43 INFO База данных подключена
+2023-08-10 20:35:51 INFO База данных подключена
+2023-08-10 20:37:06 INFO База данных подключена
+2023-08-10 20:37:33 INFO База данных подключена
+2023-08-10 20:38:15 INFO База данных подключена
+2023-08-10 20:38:19 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (6019), thread 'WorkerThread2' (123145512423424):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10afbe830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145512423424)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10b01a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145512423424)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10c555630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10c54fac0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10ae83430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10c54fac0>
+             └ {'function': <function call_comment at 0x10c556320>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10c556170...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/cansel_order_command.py", line 40, in call_comment
+    bot.send_message(passenger_id, 'Ваш заказ был отменен')
+    │   │            └ [(460378627,)]
+    │   └ <function TeleBot.send_message at 0x10c227370>
+    └ <telebot.TeleBot object at 0x10ae83430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x10c217a30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '[(460378627,)]', 'text': 'Ваш заказ был отменен'}
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x10bb9f910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x10bf16a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: chat not found'}
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2023-08-10 20:39:47 INFO База данных подключена
+2023-08-10 20:39:50 ERROR near "S": syntax error
+2023-08-10 20:39:50 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (6047), thread 'WorkerThread2' (123145486123008):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10ffa2830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145486123008)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10fffe440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145486123008)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x111539630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1115338e0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10fe67430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1115338e0>
+             └ {'function': <function call_comment at 0x11153a320>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x11153a170...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/cansel_order_command.py", line 38, in call_comment
+    print(passenger_id[0][0])
+          └ None
+
+TypeError: 'NoneType' object is not subscriptable
+2023-08-10 20:47:30 INFO База данных подключена
+2023-08-10 20:52:36 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (6144), thread 'WorkerThread2' (123145465163776):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10bfb6830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145465163776)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10c012440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145465163776)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10d40d630>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10d407520>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10beef430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10d407520>
+             └ {'function': <function call_comment at 0x10d40e320>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10d40e170...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/cansel_order_command.py", line 38, in call_comment
+    bot.send_message(passenger_id[0][0], 'Ваш заказ был отменен')
+    │   │            └ []
+    │   └ <function TeleBot.send_message at 0x10d203370>
+    └ <telebot.TeleBot object at 0x10beef430>
+
+IndexError: list index out of range
+2023-08-10 20:52:44 INFO База данных подключена
+2023-08-10 21:20:27 INFO База данных подключена
+2023-08-10 21:21:51 INFO База данных подключена
+2023-08-10 21:23:06 INFO База данных подключена
+2023-08-10 22:42:15 INFO База данных подключена
+2023-08-11 12:12:18 INFO База данных подключена
+2023-08-11 12:15:08 INFO База данных подключена
+2023-08-11 12:22:10 INFO База данных подключена
+2023-08-11 12:56:30 INFO База данных подключена
+2023-08-11 13:05:54 INFO База данных подключена
+2023-08-11 13:10:52 INFO База данных подключена
+2023-08-11 13:11:35 INFO База данных подключена
+2023-08-11 13:12:27 INFO База данных подключена
+2023-08-11 13:13:10 INFO База данных подключена
+2023-08-11 13:13:24 INFO База данных подключена
+2023-08-11 13:14:31 INFO База данных подключена
+2023-08-11 13:14:38 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8025), thread 'WorkerThread1' (123145543634944):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x101636830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145543634944)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x101692440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145543634944)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x102b2da20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x102b45b10>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10156f430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x102b45b10>
+             └ {'function': <function call_change_order at 0x102b48430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x102b...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 57, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'Отмена заказа')
+    │   │            └ {'num_cancel_order': 6}
+    │   └ <function TeleBot.send_message at 0x10291b370>
+    └ <telebot.TeleBot object at 0x10156f430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 13:20:44 INFO База данных подключена
+2023-08-11 13:21:17 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8126), thread 'WorkerThread1' (123145376026624):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10425a830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145376026624)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1042b6440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145376026624)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x105751a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1057bd030>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x104193430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1057bd030>
+             └ {'function': <function call_change_order at 0x10576c430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1057...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 57, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'Отмена заказа')
+    │   │            └ {'pickup_point': 'осло', 'tg_user_id': 595136063, 'order_time': datetime.datetime(2023, 8, 11, 13, 20, 52, 59676), 'username'...
+    │   └ <function TeleBot.send_message at 0x10553f370>
+    └ <telebot.TeleBot object at 0x104193430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 13:22:37 INFO База данных подключена
+2023-08-11 13:22:52 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8150), thread 'WorkerThread2' (123145362432000):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10755a830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145362432000)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1075b6440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145362432000)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x108a51a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x108a6b130>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x107493430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x108a6b130>
+             └ {'function': <function call_change_order at 0x108a6c430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x108a...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 54, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'Отмена заказа')
+    │   │            └ {'pickup_point': 'оао', 'tg_user_id': 595136063, 'order_time': datetime.datetime(2023, 8, 11, 13, 22, 42, 783464), 'username'...
+    │   └ <function TeleBot.send_message at 0x10883f370>
+    └ <telebot.TeleBot object at 0x107493430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 13:22:57 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8150), thread 'WorkerThread1' (123145345642496):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10755a830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145345642496)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1075b6440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145345642496)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x108a51a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x108a4bb50>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x107493430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x108a4bb50>
+             └ {'function': <function call_change_order at 0x108a6c430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x108a...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 54, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'Отмена заказа')
+    │   │            └ {'pickup_point': 'оао', 'tg_user_id': 595136063, 'order_time': datetime.datetime(2023, 8, 11, 13, 22, 42, 783464), 'username'...
+    │   └ <function TeleBot.send_message at 0x10883f370>
+    └ <telebot.TeleBot object at 0x107493430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 13:23:59 INFO База данных подключена
+2023-08-11 13:24:21 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8169), thread 'WorkerThread2' (123145521508352):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10c66a830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145521508352)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10c6c6440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145521508352)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10dc01a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10dc18b20>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10c52f430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10dc18b20>
+             └ {'function': <function call_change_order at 0x10dc1c430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10dc...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 54, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'Отмена заказа')
+    │   │            └ {'num_cancel_order': 8}
+    │   └ <function TeleBot.send_message at 0x10d8d3370>
+    └ <telebot.TeleBot object at 0x10c52f430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 13:26:40 INFO База данных подключена
+2023-08-11 13:26:47 ERROR no such column: cancel
+2023-08-11 13:26:47 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8214), thread 'WorkerThread2' (123145555505152):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x106ea2830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145555505152)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x106efe440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145555505152)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1084a9a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1084c1b10>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x106ddb430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1084c1b10>
+             └ {'function': <function call_change_order at 0x1084c4430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1084...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 56, in call_change_order
+    bot.send_message(driver_id, 'Отмена заказа')
+    │   │            └ None
+    │   └ <function TeleBot.send_message at 0x108177370>
+    └ <telebot.TeleBot object at 0x106ddb430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x108167a30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': 'None', 'text': 'Отмена заказа'}
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x107af3910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x107e66a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: chat not found'}
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2023-08-11 13:28:45 INFO База данных подключена
+2023-08-11 13:28:52 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8249), thread 'WorkerThread1' (123145335660544):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10d246830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145335660544)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10d2a2440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145335660544)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10e84da20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10e846470>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10d17f430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10e846470>
+             └ {'function': <function call_change_order at 0x10e860310>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10e8...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 56, in call_change_order
+    bot.send_message(driver_id, 'Отмена заказа')
+    │   │            └ [(460378627,)]
+    │   └ <function TeleBot.send_message at 0x10e51b370>
+    └ <telebot.TeleBot object at 0x10d17f430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x10e50ba30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '[(460378627,)]', 'text': 'Отмена заказа'}
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x10de97910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x10e20aa70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: chat not found'}
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2023-08-11 13:29:00 INFO База данных подключена
+2023-08-11 13:29:04 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8258), thread 'WorkerThread2' (123145494028288):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x100786830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145494028288)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1007e2440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145494028288)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x101c7da20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x101c97df0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1006bf430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x101c97df0>
+             └ {'function': <function call_change_order at 0x101c98430>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x101c...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 56, in call_change_order
+    bot.send_message(driver_id, 'Отмена заказа')
+    │   │            └ [(460378627,)]
+    │   └ <function TeleBot.send_message at 0x101a6b370>
+    └ <telebot.TeleBot object at 0x1006bf430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1549, in send_message
+    apihelper.send_message(
+    │         └ <function send_message at 0x101a5ba30>
+    └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 264, in send_message
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': '[(460378627,)]', 'text': 'Отмена заказа'}
+           │             │      └ 'sendMessage'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x1013df910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'sendMessage'
+                  └ <function _check_result at 0x10175aa70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: chat not found'}
+          │                    │            └ <Response [400]>
+          │                    └ 'sendMessage'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: chat not found
+2023-08-11 13:29:23 INFO База данных подключена
+2023-08-11 13:29:39 INFO База данных подключена
+2023-08-11 15:31:37 INFO База данных подключена
+2023-08-11 15:37:52 INFO База данных подключена
+2023-08-11 15:41:14 INFO База данных подключена
+2023-08-11 15:41:35 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (8495), thread 'WorkerThread1' (123145343987712):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x102586830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145343987712)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1025e2440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145343987712)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x103b8da20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x103ba59c0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1024bf430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x103ba59c0>
+             └ {'function': <function call_change_order at 0x103ba8550>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x103b...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 63, in call_change_order
+    bot.send_message(data['tg_driver_id'], 'У заказа изменение адреса!')
+    │   │            └ {'num_cancel_order': 10}
+    │   └ <function TeleBot.send_message at 0x10385b370>
+    └ <telebot.TeleBot object at 0x1024bf430>
+
+KeyError: 'tg_driver_id'
+2023-08-11 15:56:44 INFO База данных подключена
+2023-08-11 15:56:56 ERROR incomplete input
+2023-08-11 15:58:13 INFO База данных подключена
+2023-08-11 15:58:24 ERROR near "VALUES": syntax error
+2023-08-11 16:01:56 INFO База данных подключена
+2023-08-11 16:02:07 ERROR near "WHERE": syntax error
+2023-08-11 16:02:57 INFO База данных подключена
+2023-08-11 16:03:05 ERROR near "VALUES": syntax error
+2023-08-11 16:03:25 INFO База данных подключена
+2023-08-11 16:03:33 ERROR no such column: VALUE
+2023-08-11 16:04:30 INFO База данных подключена
+2023-08-11 16:04:43 ERROR no such column: JCKJ
+2023-08-11 16:08:50 INFO База данных подключена
+2023-08-11 16:09:04 ERROR no such column: ОСЛО
+2023-08-11 16:17:16 INFO База данных подключена
+2023-08-11 16:17:23 ERROR no such column: ОСЛО
+2023-08-11 16:18:20 INFO База данных подключена
+2023-08-11 16:20:40 INFO База данных подключена
+2023-08-11 16:20:46 ERROR no such column: JCkj
+2023-08-11 16:22:21 INFO База данных подключена
+2023-08-11 16:22:28 ERROR no such column: jckj
+2023-08-11 16:23:25 INFO База данных подключена
+2023-08-11 16:24:17 INFO База данных подключена
+2023-08-11 16:24:27 ERROR no such column: fjvhsf
+2023-08-11 16:25:51 INFO База данных подключена
+2023-08-11 16:26:02 ERROR no such column: cjcj
+2023-08-11 16:28:52 INFO База данных подключена
+2023-08-11 16:32:55 INFO База данных подключена
+2023-08-11 16:35:51 INFO База данных подключена
+2023-08-11 16:38:42 INFO База данных подключена
+2023-08-11 16:41:03 INFO База данных подключена
+2023-08-11 16:44:30 ERROR no such column: change_destination
+2023-08-11 16:44:30 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (9405), thread 'WorkerThread1' (123145400942592):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x107162830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145400942592)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1071be440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145400942592)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1086f9a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x108761450>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x107027430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x108761450>
+             └ {'function': <function call_change_order at 0x1087144c0>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1086...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 56, in call_change_order
+    driver_id = execute_read_query(query_for_passenger_id)[0][0]
+                │                  └ 'SELECT tg_driver_id FROM orders WHERE id = change_destination'
+                └ <function execute_read_query at 0x1086f92d0>
+
+TypeError: 'NoneType' object is not subscriptable
+2023-08-11 16:44:40 ERROR no such column: change_destination
+2023-08-11 16:44:40 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (9405), thread 'WorkerThread2' (123145417732096):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x107162830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145417732096)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x1071be440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145417732096)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x1086f9a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x1087611e0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x107027430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x1087611e0>
+             └ {'function': <function call_change_order at 0x1087144c0>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x1086...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/change_order_command.py", line 56, in call_change_order
+    driver_id = execute_read_query(query_for_passenger_id)[0][0]
+                │                  └ 'SELECT tg_driver_id FROM orders WHERE id = change_destination'
+                └ <function execute_read_query at 0x1086f92d0>
+
+TypeError: 'NoneType' object is not subscriptable
+2023-08-11 16:47:03 INFO База данных подключена
+2023-08-11 16:54:31 ERROR no such column: done
+2023-08-11 16:54:31 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (9466), thread 'WorkerThread2' (123145386569728):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x1099de830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145386569728)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x109a3a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145386569728)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10afe5a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10b04d840>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x109917430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10b04d840>
+             └ {'function': <function call_comment at 0x10afe7250>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10afe7010...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/connection_with_pass_command.py", line 47, in call_comment
+    bot.send_message(passenger_id[0][0], f"Сообщение от водителя: {data['message']}\n"
+    │   │            └ None
+    │   └ <function TeleBot.send_message at 0x10acb3370>
+    └ <telebot.TeleBot object at 0x109917430>
+
+TypeError: 'NoneType' object is not subscriptable
+2023-08-11 16:58:32 ERROR no such column: done
+2023-08-11 16:58:32 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (9466), thread 'WorkerThread2' (123145386569728):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x1099de830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145386569728)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x109a3a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145386569728)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10afe5a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10b04d870>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x109917430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10b04d870>
+             └ {'function': <function call_comment at 0x10afe7250>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10afe7010...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/connection_with_pass_command.py", line 47, in call_comment
+    bot.send_message(passenger_id[0][0], f"Сообщение от водителя: {data['message']}\n"
+    │   │            └ None
+    │   └ <function TeleBot.send_message at 0x10acb3370>
+    └ <telebot.TeleBot object at 0x109917430>
+
+TypeError: 'NoneType' object is not subscriptable
+2023-08-11 17:15:09 INFO База данных подключена
+2023-08-11 17:16:42 INFO База данных подключена
+2023-08-11 17:43:00 INFO База данных подключена
+2023-08-11 17:44:29 INFO База данных подключена
+2023-08-11 17:46:30 INFO База данных подключена
+2023-08-11 17:49:27 INFO База данных подключена
+2023-08-11 17:53:06 INFO База данных подключена
+2023-08-12 15:21:35 INFO База данных подключена
+2023-08-12 15:22:57 INFO База данных подключена
+2023-08-12 15:24:24 INFO База данных подключена
+2023-08-12 16:14:00 INFO База данных подключена
+2023-08-12 16:17:25 INFO База данных подключена
+2023-08-12 16:34:34 INFO База данных подключена
+2023-08-12 17:01:07 INFO База данных подключена
+2023-08-12 17:02:10 INFO База данных подключена
+2023-08-12 17:21:14 INFO База данных подключена
+2023-08-12 17:21:54 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (88517), thread 'WorkerThread1' (123145520861184):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x106f92830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145520861184)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x106fee440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145520861184)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x108489b40>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x108deffd0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x106ecb430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x108deffd0>
+             └ {'function': <function call_comment at 0x108ef5480>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x108ef4dc0...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/order_command.py", line 91, in call_comment
+    f'Для связи - {data["username"]}',
+
+KeyError: 'username'
+2023-08-12 17:35:53 INFO База данных подключена
+2023-08-12 17:36:21 ERROR Incorrect number of bindings supplied. The current statement uses 5, and there are 9 supplied.
+2023-08-12 17:37:12 INFO База данных подключена
+2023-08-12 17:37:24 ERROR 9 values for 5 columns
+2023-08-12 17:38:35 INFO База данных подключена
+2023-08-12 17:43:55 INFO База данных подключена
+2023-08-12 17:44:23 ERROR unrecognized token: "'SELECT * FROM orders"
+2023-08-12 17:45:47 INFO База данных подключена
+2023-08-12 17:48:18 INFO База данных подключена
+2023-08-12 17:50:49 INFO База данных подключена
+2023-08-12 17:52:12 INFO База данных подключена
+2023-08-12 17:54:31 INFO База данных подключена
+2023-08-12 18:05:26 INFO База данных подключена
+2023-08-12 18:08:15 INFO База данных подключена
+2023-08-12 18:10:29 INFO База данных подключена
+2023-08-12 18:12:40 INFO База данных подключена
+2023-08-12 18:13:04 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (92925), thread 'WorkerThread2' (123145418166272):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10bc1e830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145418166272)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10bc7a440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145418166272)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10d1b5a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10db0fb80>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10bae3430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10db0fb80>
+             └ {'function': <function call_done_order at 0x10da27130>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10da26...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/approved_order.py", line 62, in call_done_order
+    send_data(spreadsheets_id=spreadsheet_id, num=data[0][0], data=data_for_send)
+    │                         │                   │                └ [7, ('Ближайшее время', 'OSlo'), '2023-08-12 18:08:29.005053', 'jsfnvdlf', 'Выполнен', 'Olga Seliakova', '@olgaseliakova', 'R...
+    │                         │                   └ [(7, 595136063, 'Ближайшее время', 'OSlo', 'Tromse', 460378627, '@olgaseliakova', '2023-08-12 18:08:29.005053', 'jsfnvdlf', '...
+    │                         └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    └ <function send_data at 0x10da26b90>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/data_base.py", line 28, in send_data
+    service.spreadsheets().values().batchUpdate(spreadsheetId=spreadsheets_id, body=body).execute()
+    │       │                                                 │                     └ {'value_input_option': 'USER_ENTERED', 'data': [{'range': 'A7', 'majorDimension': 'ROWS', 'values': [[7, ('Ближайшее время', ...
+    │       │                                                 └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │       └ <bound method Resource._add_nested_resources.<locals>.createResourceMethod.<locals>.methodResource of <googleapiclient.discov...
+    └ <googleapiclient.discovery.Resource object at 0x10d9fdf60>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<googleapiclient.http.HttpRequest object at 0x10db649d0>,)
+           └ <function HttpRequest.execute at 0x10d9d2a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+          │         │     │            │    └ 'https://sheets.googleapis.com/v4/spreadsheets/19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg/values:batchUpdate?alt=json'
+          │         │     │            └ <googleapiclient.http.HttpRequest object at 0x10db649d0>
+          │         │     └ b'{\n  "error": {\n    "code": 400,\n    "message": "Invalid data[0]: Invalid values[6][1]: list_value {\\n  values {\\n    s...
+          │         └ {'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'date': 'Sat, 12 Aug 2023 16:13:04 G...
+          └ <class 'googleapiclient.errors.HttpError'>
+
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://sheets.googleapis.com/v4/spreadsheets/19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg/values:batchUpdate?alt=json returned "Invalid data[0]: Invalid values[6][1]: list_value {
+  values {
+    string_value: "\320\221\320\273\320\270\320\266\320\260\320\271\321\210\320\265\320\265 \320\262\321\200\320\265\320\274\321\217"
+  }
+  values {
+    string_value: "OSlo"
+  }
+}". Details: "Invalid data[0]: Invalid values[6][1]: list_value {
+  values {
+    string_value: "\320\221\320\273\320\270\320\266\320\260\320\271\321\210\320\265\320\265 \320\262\321\200\320\265\320\274\321\217"
+  }
+  values {
+    string_value: "OSlo"
+  }
+}
+">
+2023-08-12 18:15:11 INFO База данных подключена
+2023-08-12 18:15:50 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (92968), thread 'WorkerThread2' (123145549357056):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10ae82830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145549357056)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10aede440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145549357056)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10c489a20>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10cddbac0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10adbb430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10cddbac0>
+             └ {'function': <function call_done_order at 0x10ccfb130>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10ccfa...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/approved_order.py", line 62, in call_done_order
+    send_data(spreadsheets_id=spreadsheet_id, num=data[0][0], data=data_for_send)
+    │                         │                   │                └ [9, ('Ближайшее время', 'Jvjfvj'), '2023-08-12 18:12:54.957398', 'Около', 'Выполнен', 'Olga Seliakova', '@olgaseliakova', 'Ro...
+    │                         │                   └ [(9, 595136063, 'Ближайшее время', 'Jvjfvj', 'Тромсе', 460378627, '@olgaseliakova', '2023-08-12 18:12:54.957398', 'Около', 'O...
+    │                         └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    └ <function send_data at 0x10ccfab90>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/data_base.py", line 28, in send_data
+    service.spreadsheets().values().batchUpdate(spreadsheetId=spreadsheets_id, body=body).execute()
+    │       │                                                 │                     └ {'value_input_option': 'USER_ENTERED', 'data': [{'range': 'A9', 'majorDimension': 'ROWS', 'values': [[9, ('Ближайшее время', ...
+    │       │                                                 └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │       └ <bound method Resource._add_nested_resources.<locals>.createResourceMethod.<locals>.methodResource of <googleapiclient.discov...
+    └ <googleapiclient.discovery.Resource object at 0x10ccca770>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+           │        │       └ {}
+           │        └ (<googleapiclient.http.HttpRequest object at 0x10ce2d1b0>,)
+           └ <function HttpRequest.execute at 0x10cca6a70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/googleapiclient/http.py", line 938, in execute
+    raise HttpError(resp, content, uri=self.uri)
+          │         │     │            │    └ 'https://sheets.googleapis.com/v4/spreadsheets/19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg/values:batchUpdate?alt=json'
+          │         │     │            └ <googleapiclient.http.HttpRequest object at 0x10ce2d1b0>
+          │         │     └ b'{\n  "error": {\n    "code": 400,\n    "message": "Invalid data[0]: Invalid values[8][1]: list_value {\\n  values {\\n    s...
+          │         └ {'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'date': 'Sat, 12 Aug 2023 16:15:50 G...
+          └ <class 'googleapiclient.errors.HttpError'>
+
+googleapiclient.errors.HttpError: <HttpError 400 when requesting https://sheets.googleapis.com/v4/spreadsheets/19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg/values:batchUpdate?alt=json returned "Invalid data[0]: Invalid values[8][1]: list_value {
+  values {
+    string_value: "\320\221\320\273\320\270\320\266\320\260\320\271\321\210\320\265\320\265 \320\262\321\200\320\265\320\274\321\217"
+  }
+  values {
+    string_value: "Jvjfvj"
+  }
+}". Details: "Invalid data[0]: Invalid values[8][1]: list_value {
+  values {
+    string_value: "\320\221\320\273\320\270\320\266\320\260\320\271\321\210\320\265\320\265 \320\262\321\200\320\265\320\274\321\217"
+  }
+  values {
+    string_value: "Jvjfvj"
+  }
+}
+">
+2023-08-12 18:18:55 INFO База данных подключена
+2023-08-12 18:20:02 INFO База данных подключена
+2023-08-12 18:22:02 INFO База данных подключена
+2023-08-12 18:23:57 INFO База данных подключена
+2023-08-12 18:25:20 INFO База данных подключена
+2023-08-12 18:25:41 INFO База данных подключена
+2023-08-12 18:27:21 INFO База данных подключена
+2023-08-12 18:28:11 INFO База данных подключена
+2023-08-12 18:37:08 INFO База данных подключена
+2023-08-12 19:19:02 INFO База данных подключена
+2023-08-12 19:27:32 INFO База данных подключена
+2023-08-12 19:44:02 INFO База данных подключена
+2023-08-12 19:45:03 INFO База данных подключена
+2023-08-12 20:15:31 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (93996), thread 'WorkerThread2' (123145600909312):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x101bb2830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145600909312)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x101c0e440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145600909312)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x103144550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x103c70310>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x101a77430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x103c70310>
+             └ {'function': <function driver_answer at 0x103144550>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x102e33c7...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/driver_bot.py", line 16, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Осло', 'service_time': 'Ближайшее время', 'destination_point': 'Тромсе', 'tg_driver_id': 460378627}
+    │   └ <function TeleBot.send_message at 0x102e1b370>
+    └ <telebot.TeleBot object at 0x101a77430>
+
+KeyError: 'passenger_id'
+2023-08-14 11:03:04 INFO База данных подключена
+2023-08-14 11:09:17 INFO База данных подключена
+2023-08-14 11:16:19 INFO База данных подключена
+2023-08-14 11:19:19 INFO База данных подключена
+2023-08-14 11:20:28 INFO База данных подключена
+2023-08-14 11:21:45 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (95123), thread 'WorkerThread2' (123145573642240):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x108a22830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145573642240)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x108a7e440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145573642240)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x109fb4550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10a95ca90>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1088e7430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10a95ca90>
+             └ {'function': <function call_done_order at 0x10a8f0550>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10a8f0...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/approved_order.py", line 57, in call_done_order
+    send_data_to_sheep(data=data, spreadsheet_id=spreadsheet_id, message=message, status='выполнен')
+    │                       │                    └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │                       └ [(3, 595136063, 'Ближайшее время', 'Тромсе', 'Кукарка', 460378627, '@olgaseliakova', '14/08/23 11:17', None, 'Olga Seliakova')]
+    └ <function send_data_to_sheep at 0x10a8f0040>
+
+NameError: name 'message' is not defined
+2023-08-14 11:21:52 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (95123), thread 'WorkerThread1' (123145556852736):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x108a22830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145556852736)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x108a7e440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145556852736)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x109fb4550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10a95c4f0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1088e7430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10a95c4f0>
+             └ {'function': <function call_comment at 0x10a8f1360>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10a8f11b0...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/cansel_order_command.py", line 64, in call_comment
+    send_data_to_sheep(data=data, spreadsheet_id=spreadsheet_id, message=call, status='Отменен')
+    │                       │                    │                       └ <telebot.types.CallbackQuery object at 0x10a95c4f0>
+    │                       │                    └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │                       └ 'SELECT * FROM orders WHERE id = 2'
+    └ <function send_data_to_sheep at 0x10a8f0040>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/data_base.py", line 33, in send_data_to_sheep
+    data_for_send = [data[0][0], *data[0][2:5], data[0][-3], data[0][-2], status, data[0][-1], data[0][-4],
+                     │            │             │            │            │       │            └ 'SELECT * FROM orders WHERE id = 2'
+                     │            │             │            │            │       └ 'SELECT * FROM orders WHERE id = 2'
+                     │            │             │            │            └ 'Отменен'
+                     │            │             │            └ 'SELECT * FROM orders WHERE id = 2'
+                     │            │             └ 'SELECT * FROM orders WHERE id = 2'
+                     │            └ 'SELECT * FROM orders WHERE id = 2'
+                     └ 'SELECT * FROM orders WHERE id = 2'
+
+IndexError: string index out of range
+2023-08-14 11:22:26 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (95123), thread 'WorkerThread2' (123145573642240):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x108a22830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145573642240)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x108a7e440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145573642240)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x109fb4550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10a95fd60>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x1088e7430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10a95fd60>
+             └ {'function': <function call_done_order at 0x10a8f0550>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10a8f0...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/approved_order.py", line 57, in call_done_order
+    send_data_to_sheep(data=data, spreadsheet_id=spreadsheet_id, message=message, status='выполнен')
+    │                       │                    └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │                       └ [(1, 595136063, 'Ближайшее время', 'Jckj', 'Тромсе', 460378627, '@olgaseliakova', '14/08/23 11:09', 'мы', 'Olga Seliakova')]
+    └ <function send_data_to_sheep at 0x10a8f0040>
+
+NameError: name 'message' is not defined
+2023-08-14 11:24:55 INFO База данных подключена
+2023-08-14 11:49:12 INFO База данных подключена
+2023-08-14 12:39:31 INFO База данных подключена
+2023-08-14 12:43:55 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (3560), thread 'WorkerThread1' (123145486569472):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x109b6a830>
+    └ <WorkerThread(WorkerThread1, started daemon 123145486569472)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x109bc6440>
+    └ <WorkerThread(WorkerThread1, started daemon 123145486569472)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10b130550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10bad8820>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x109aa3430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10bad8820>
+             └ {'function': <function call_comment at 0x10ba81b40>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10ba81480...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/user/order_command.py", line 105, in call_comment
+    bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.id, reply_markup=None)
+    │   │                                 │    │         │              │    │       └ 2537
+    │   │                                 │    │         │              │    └ <telebot.types.Message object at 0x10bad8af0>
+    │   │                                 │    │         │              └ <telebot.types.CallbackQuery object at 0x10bad8820>
+    │   │                                 │    │         └ 503172138
+    │   │                                 │    └ <telebot.types.User object at 0x10bad8ac0>
+    │   │                                 └ <telebot.types.CallbackQuery object at 0x10bad8820>
+    │   └ <function TeleBot.edit_message_reply_markup at 0x10af351b0>
+    └ <telebot.TeleBot object at 0x109aa3430>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 3697, in edit_message_reply_markup
+    result = apihelper.edit_message_reply_markup(self.token, chat_id, message_id, inline_message_id, reply_markup)
+             │         │                         │    │      │        │           │                  └ None
+             │         │                         │    │      │        │           └ None
+             │         │                         │    │      │        └ 2537
+             │         │                         │    │      └ 503172138
+             │         │                         │    └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+             │         │                         └ <telebot.TeleBot object at 0x109aa3430>
+             │         └ <function edit_message_reply_markup at 0x10aee1e10>
+             └ <module 'telebot.apihelper' from '/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelpe...
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 1323, in edit_message_reply_markup
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': 503172138, 'message_id': 2537}
+           │             │      └ 'editMessageReplyMarkup'
+           │             └ '6404931861:AAEkVidJTzQk7sxYaDi13mRvME8ghbuFoKE'
+           └ <function _make_request at 0x10a303910>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'editMessageReplyMarkup'
+                  └ <function _check_result at 0x10abfaa70>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: message is not modified: specified new message content and repl...
+          │                    │            └ <Response [400]>
+          │                    └ 'editMessageReplyMarkup'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-08-14 12:48:47 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (3560), thread 'WorkerThread2' (123145503358976):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x109b6a830>
+    └ <WorkerThread(WorkerThread2, started daemon 123145503358976)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x109bc6440>
+    └ <WorkerThread(WorkerThread2, started daemon 123145503358976)>
+  File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10b130550>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10ba8b490>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x109aa3430>>
+> File "/Users/romangombraikh/Desktop/trest_taxi/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10ba8b490>
+             └ {'function': <function call_comment at 0x10ba6d360>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10ba6d1b0...
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/handlers/driver/cansel_order_command.py", line 64, in call_comment
+    send_data_to_sheep(data=data, spreadsheet_id=spreadsheet_id, message=call, status='Отменен')
+    │                       │                    │                       └ <telebot.types.CallbackQuery object at 0x10ba8b490>
+    │                       │                    └ '19MM3BUJJz0J36x7vrG9TIK4yFByLQqmSW1UDLHy9KHg'
+    │                       └ 'SELECT * FROM orders WHERE id = 9'
+    └ <function send_data_to_sheep at 0x10ba6c040>
+
+  File "/Users/romangombraikh/Desktop/trest_taxi/data_base_doc/data_base.py", line 33, in send_data_to_sheep
+    data_for_send = [data[0][0], *data[0][2:5], data[0][-3], data[0][-2], status, data[0][-1], data[0][-4],
+                     │            │             │            │            │       │            └ 'SELECT * FROM orders WHERE id = 9'
+                     │            │             │            │            │       └ 'SELECT * FROM orders WHERE id = 9'
+                     │            │             │            │            └ 'Отменен'
+                     │            │             │            └ 'SELECT * FROM orders WHERE id = 9'
+                     │            │             └ 'SELECT * FROM orders WHERE id = 9'
+                     │            └ 'SELECT * FROM orders WHERE id = 9'
+                     └ 'SELECT * FROM orders WHERE id = 9'
+
+IndexError: string index out of range
