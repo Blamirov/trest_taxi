@@ -26,3 +26,4 @@ class DriverStates(StatesGroup):
     cancel_order_after_approved = State()
     send_message_to_pas = State()
     order_done = State()
+    none = State()

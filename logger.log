@@ -1435,3 +1435,74 @@ Traceback (most recent call last):
                      └ 'SELECT * FROM orders WHERE id = 9'
 
 IndexError: string index out of range
+2023-08-14 22:16:03 INFO База данных подключена
+2023-08-14 22:21:33 INFO База данных подключена
+2023-08-15 10:53:07 INFO База данных подключена
+2023-08-15 10:53:29 INFO База данных подключена
+2023-08-15 12:13:05 INFO База данных подключена
+2023-08-15 12:39:34 INFO База данных подключена
+2023-08-15 12:41:00 INFO База данных подключена
+2023-08-15 12:43:18 INFO База данных подключена
+2023-08-15 12:43:26 INFO База данных подключена
+2023-08-15 12:43:55 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (4579), thread 'WorkerThread1' (123145392939008):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x100662680>
+    └ <WorkerThread(WorkerThread1, started daemon 123145392939008)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10053e680>
+    └ <WorkerThread(WorkerThread1, started daemon 123145392939008)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x101b7f640>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10268aaa0>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10046b3d0>>
+> File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10268aaa0>
+             └ {'function': <function call_comment at 0x10262ef80>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10262e8c0...
+
+  File "/Users/romangombraikh/Desktop/trest_test/handlers/user/order_command.py", line 105, in call_comment
+    bot.edit_message_reply_markup(chat_id=call.from_user.id, message_id=call.message.id, reply_markup=None)
+    │   │                                 │    │         │              │    │       └ 145
+    │   │                                 │    │         │              │    └ <telebot.types.Message object at 0x102688250>
+    │   │                                 │    │         │              └ <telebot.types.CallbackQuery object at 0x10268aaa0>
+    │   │                                 │    │         └ 595136063
+    │   │                                 │    └ <telebot.types.User object at 0x10268aec0>
+    │   │                                 └ <telebot.types.CallbackQuery object at 0x10268aaa0>
+    │   └ <function TeleBot.edit_message_reply_markup at 0x10188d1b0>
+    └ <telebot.TeleBot object at 0x10046b3d0>
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/__init__.py", line 3697, in edit_message_reply_markup
+    result = apihelper.edit_message_reply_markup(self.token, chat_id, message_id, inline_message_id, reply_markup)
+             │         │                         │    │      │        │           │                  └ None
+             │         │                         │    │      │        │           └ None
+             │         │                         │    │      │        └ 145
+             │         │                         │    │      └ 595136063
+             │         │                         │    └ '6049943909:AAHEpAPn0wK35-a9_8K990N8slImLS-6Y2E'
+             │         │                         └ <telebot.TeleBot object at 0x10046b3d0>
+             │         └ <function edit_message_reply_markup at 0x101875e10>
+             └ <module 'telebot.apihelper' from '/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/api...
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/apihelper.py", line 1323, in edit_message_reply_markup
+    return _make_request(token, method_url, params=payload, method='post')
+           │             │      │                  └ {'chat_id': 595136063, 'message_id': 145}
+           │             │      └ 'editMessageReplyMarkup'
+           │             └ '6049943909:AAHEpAPn0wK35-a9_8K990N8slImLS-6Y2E'
+           └ <function _make_request at 0x10126da20>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+                  │             │            └ <Response [400]>
+                  │             └ 'editMessageReplyMarkup'
+                  └ <function _check_result at 0x10154f0a0>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+          │                    │            │       └ {'ok': False, 'error_code': 400, 'description': 'Bad Request: message is not modified: specified new message content and repl...
+          │                    │            └ <Response [400]>
+          │                    └ 'editMessageReplyMarkup'
+          └ <class 'telebot.apihelper.ApiTelegramException'>
+
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 400. Description: Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2023-08-15 12:46:08 INFO База данных подключена

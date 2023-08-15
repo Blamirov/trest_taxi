@@ -34,3 +34,5 @@ def done_survey(message: Message) -> None:
     with bot.retrieve_data(message.from_user.id) as data:
         bot.send_message(data['passenger_id'], f'Машина не найдена, комментарий водителя: {message.text}')
         bot.set_state(data['passenger_id'], UserStates.none)
+        bot.set_state(message.from_user.id, state=DriverStates.none)
+
