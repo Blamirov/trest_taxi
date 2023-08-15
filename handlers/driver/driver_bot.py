@@ -16,7 +16,8 @@ def driver_answer(call: CallbackQuery) -> None:
             bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
                                                    f'{call.from_user.username}')
             bot.set_state(data['passenger_id'], UserStates.none)
-            bot.send_message(call.from_user.id, f'Для того чтобы отметь заказ выполненным нажмите - /approved_order\n'
+            bot.send_message(call.from_user.id, f'Для того чтобы отметить заказ выполненным нажмите - '
+                                                f'/approved_order\n'
                                                 f'Для просмотра активных заказов нажмите - /active_order\n'
                                                 f'Для отмены заказа нажмите - /cancel_order\n'
                                                 f'Для связи с клиентом нажмите - /connection_to_passenger'

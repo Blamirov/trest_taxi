@@ -13,9 +13,12 @@ def order(message: Message) -> None:
     """
     query = f'''SELECT * FROM orders'''
     data = execute_read_query(query)
-    for act_order in data:
-        bot.send_message(message.from_user.id,
-                         f'{act_order[0]}. Время - {act_order[2]}\nмаршрут: {act_order[3]} -> {act_order[4]}')
+    if data:
+        for act_order in data:
+            bot.send_message(message.from_user.id,
+                             f'{act_order[0]}. Время - {act_order[2]}\nмаршрут: {act_order[3]} -> {act_order[4]}')
+    else:
+        bot.send_message(message.from_user.id, 'Нет активных заказов')
 
 
 if __name__ == "__main__":
