@@ -3,7 +3,7 @@
 ###Телеграм бот для заказа такси в городе Баренцбург
 
 
-![img.png](img_for_radme/img.png)
+![img.png](img_for_readme/img.png)
 
 
 Данный бот позволяет принимать и обрабатывать заказы на такси,
@@ -24,7 +24,7 @@
 
 `Spreadsheet_id= `
 
-![img_1.png](img_for_radme/img_1.png)
+![img_1.png](img_for_readme/img_1.png)
 
 
 Spreadsheet_id - это все что находится в адресной строке начина после /d/ и заканчивая следующим слешем,
