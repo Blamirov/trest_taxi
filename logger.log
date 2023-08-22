@@ -1510,3 +1510,32 @@ telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsucc
 2023-08-15 13:01:24 INFO База данных подключена
 2023-08-15 13:01:57 INFO База данных подключена
 2023-08-15 13:04:30 INFO База данных подключена
+2023-08-22 11:37:47 INFO База данных подключена
+2023-08-22 11:38:39 ERROR An error has been caught in function '_run_middlewares_and_handler', process 'MainProcess' (91668), thread 'WorkerThread2' (123145502183424):
+Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+    │    └ <function Thread._bootstrap_inner at 0x10da9a680>
+    └ <WorkerThread(WorkerThread2, started daemon 123145502183424)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+    │    └ <function WorkerThread.run at 0x10d976680>
+    └ <WorkerThread(WorkerThread2, started daemon 123145502183424)>
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/util.py", line 100, in run
+    task(*args, **kwargs)
+    │     │       └ {'handlers': [{'function': <function driver_answer at 0x10efb7640>, 'pass_bot': False, 'filters': {'func': <function <lambda>...
+    │     └ (<telebot.types.CallbackQuery object at 0x10f984d60>,)
+    └ <bound method TeleBot._run_middlewares_and_handler of <telebot.TeleBot object at 0x10d8a3340>>
+> File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/telebot/__init__.py", line 6308, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             │                   └ <telebot.types.CallbackQuery object at 0x10f984d60>
+             └ {'function': <function driver_answer at 0x10efb7640>, 'pass_bot': False, 'filters': {'func': <function <lambda> at 0x10eccf91...
+
+  File "/Users/romangombraikh/Desktop/trest_test/handlers/driver/driver_bot.py", line 16, in driver_answer
+    bot.send_message(data['passenger_id'], f'Ваш заказ принят ожидайте такси, для связи с водителем - @'
+    │   │            └ {'pickup_point': 'Осло', 'service_time': 'Ближайшее время', 'destination_point': 'Термосе', 'tg_driver_id': 460378627}
+    │   └ <function TeleBot.send_message at 0x10ecb3370>
+    └ <telebot.TeleBot object at 0x10d8a3340>
+
+KeyError: 'passenger_id'
